@@ -6,10 +6,12 @@ import Login from "./assets/pages/Login";
 import Details from "./assets/pages/ProductDetails";
 import PageNotFound from "./assets/pages/PageNotFound";
 import Cart from "./assets/pages/Cart";
+import ResponsiveAppBar from "./assets/components/ResponsiveAppBar";
 
 function App() {
     return (
         <>
+            <ResponsiveAppBar />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route
