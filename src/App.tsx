@@ -1,17 +1,18 @@
 import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
 
-import Home from "./assets/pages/Home";
-import Login from "./assets/pages/Login";
-import Details from "./assets/pages/ProductDetails";
-import PageNotFound from "./assets/pages/PageNotFound";
-import Cart from "./assets/pages/Cart";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Details from "./pages/ProductDetails";
+import PageNotFound from "./pages/PageNotFound";
+import Cart from "./pages/Cart";
+import About from "./pages/About";
 
 function App() {
     return (
         <>
             <Link to="/">Home</Link> | <Link to="/login">Login</Link> |{" "}
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart">Cart</Link> | <Link to="/about">Sobre</Link> 
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="*" element={<PageNotFound />} />
+                <Route path="about" element={<About />} />
             </Routes>
         </>
     );
