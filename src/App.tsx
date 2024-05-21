@@ -1,17 +1,17 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 
 import Home from "./assets/pages/Home";
 import Login from "./assets/pages/Login";
 import Details from "./assets/pages/ProductDetails";
 import PageNotFound from "./assets/pages/PageNotFound";
 import Cart from "./assets/pages/Cart";
-import ResponsiveAppBar from "./assets/components/ResponsiveAppBar";
 
 function App() {
     return (
         <>
-            <ResponsiveAppBar />
+            <Link to="/">Home</Link> | <Link to="/login">Login</Link> |{" "}
+            <Link to="/cart">Cart</Link>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route
