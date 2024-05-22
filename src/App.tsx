@@ -13,8 +13,7 @@ function App() {
     return (
         <>
             <MyNavBar />
-            <Link to="/">Home</Link> | <Link to="/login">Login</Link> |{" "}
-            <Link to="/cart">Cart</Link> | <Link to="/about">Sobre</Link>
+            
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route
