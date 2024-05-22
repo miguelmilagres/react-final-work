@@ -25,7 +25,7 @@ const Home = () => {
     );
 
     return (
-        <>
+        <div className="container">
             <h1>Produtos:</h1>
             <input
                 type="text"
@@ -42,7 +42,7 @@ const Home = () => {
                     </li>
                 ))}
             </ul>
-        </>
+        </div>
     );
 };
 

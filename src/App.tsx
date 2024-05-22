@@ -7,12 +7,14 @@ import Details from "./pages/ProductDetails";
 import PageNotFound from "./pages/PageNotFound";
 import Cart from "./pages/Cart";
 import About from "./pages/About";
+import MyNavBar from "./components/MyNavBar";
 
 function App() {
     return (
         <>
+            <MyNavBar />
             <Link to="/">Home</Link> | <Link to="/login">Login</Link> |{" "}
-            <Link to="/cart">Cart</Link> | <Link to="/about">Sobre</Link> 
+            <Link to="/cart">Cart</Link> | <Link to="/about">Sobre</Link>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route
