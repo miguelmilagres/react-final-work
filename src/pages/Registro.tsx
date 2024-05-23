@@ -1,41 +1,41 @@
 import { useState, FormEvent } from "react";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../services/firebaseConfig";
 import "../components/css/Auth.css";
 
-export default function Login() {
+export default function Registro() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-
-  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
   const navigate = useNavigate();
 
-  const handleSignIn = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSignUp = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(email, password);
+      await createUserWithEmailAndPassword(email, password);
       if (user) {
-        navigate("/"); // Redirecionar para a página principal
+        alert("Usuário criado com sucesso!");
+        navigate("/login");
       }
-    } catch (err) {
-      alert("Usuário ou senha inválidos.");
+    } catch (error) {
+      console.error("Erro ao criar usuário:", error);
+      alert(error);
     }
   };
 
   return (
     <div className="auth-container">
       <header className="auth-header">
-        <h2>Login</h2>
-        <p>Por favor, digite suas informações de login:</p>
+        <h2>Cadastre-se</h2>
+        <p>Digite suas informações de cadastro:</p>
       </header>
 
-      <form onSubmit={handleSignIn} className="auth-form">
+      <form onSubmit={handleSignUp} className="auth-form">
         <div className="input-container">
           <label htmlFor="email">E-mail</label>
           <input
             type="email"
-            name="email"
             id="email"
             placeholder="seuemail@gmail.com"
             value={email}
@@ -48,7 +48,6 @@ export default function Login() {
           <label htmlFor="password">Senha</label>
           <input
             type="password"
-            name="password"
             id="password"
             placeholder="********"
             value={password}
@@ -59,17 +58,15 @@ export default function Login() {
 
         {error && <p className="error-message">{error.message}</p>}
 
-        <a href="#" className="forgot-password-link">Esqueceu sua senha?</a>
-
         <button type="submit" className="auth-button">
-          Entrar
+          Cadastrar
         </button>
 
         {loading && <p>Carregando...</p>}
 
         <div className="auth-footer">
-          <p>Você não tem uma conta?</p>
-          <Link to="/registro" className="auth-link">Crie a sua conta aqui</Link>
+          <p>Você já tem uma conta?</p>
+          <Link to="/login" className="auth-link">Acesse sua conta aqui</Link>
         </div>
       </form>
     </div>

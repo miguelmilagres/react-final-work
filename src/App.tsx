@@ -8,6 +8,7 @@ import PageNotFound from "./pages/PageNotFound";
 import Cart from "./pages/Cart";
 import About from "./pages/About";
 import MyNavBar from "./components/MyNavBar";
+import Registro from "./pages/Registro";
 
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="*" element={<PageNotFound />} />
                 <Route path="about" element={<About />} />
+                <Route path="registro" element={<Registro />} />
             </Routes>
         </>
     );
