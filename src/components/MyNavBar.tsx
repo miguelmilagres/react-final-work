@@ -5,17 +5,14 @@ import { Image } from "react-bootstrap";
 
 const MyNavBar = () => {
     return (
-        <Navbar
-            bg="light"
-            data-bs-theme="light"
-            className="border-bottom px-3 py-3"
-        >
+        <Navbar data-bs-theme="light" className="border-bottom px-3 py-3">
             <Container fluid>
                 <Navbar.Brand href="/">
                     <Image src="src\assets\images\logo.png" width={64} />
                 </Navbar.Brand>
                 <Nav className="mx-auto fw-bold">
                     <Nav.Link href="/">HOME</Nav.Link>
+                    <Nav.Link href="/about">ABOUT US</Nav.Link>
                 </Nav>
                 <Nav>
                     <Nav.Link href="/login" className="px-4 border-start">
