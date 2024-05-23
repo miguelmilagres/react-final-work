@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { getProducts } from "../services/productServices";
 import { Link } from "react-router-dom";
 import { Product } from "../types";
+import ProductCard from "../components/ProductCard";
+import { Container, Row, Col, Form } from "react-bootstrap";
 
 const Home = () => {
     const [products, setProducts] = useState<Product[]>([]);
@@ -25,24 +27,34 @@ const Home = () => {
     );
 
     return (
-        <div className="container">
-            <h1>Produtos:</h1>
-            <input
-                type="text"
-                placeholder="Pesquisar produtos..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <ul>
+        <Container className="mt-5">
+            <Form.Group controlId="search">
+                <Form.Control
+                    type="text"
+                    placeholder="Pesquisar produtos..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+            </Form.Group>
+            <Row>
                 {filteredProducts.map((product) => (
-                    <li key={product.id}>
-                        <Link to={`/product-details/${product.id}`}>
-                            {product.name} - R$ {product.price},00
+                    <Col
+                        key={product.id}
+                        sm={6}
+                        md={4}
+                        lg={3}
+                        className="d-flex justify-content-center"
+                    >
+                        <Link
+                            to={`/product-details/${product.id}`}
+                            style={{ textDecoration: "none", color: "inherit" }}
+                        >
+                            <ProductCard product={product} />
                         </Link>
-                    </li>
+                    </Col>
                 ))}
-            </ul>
-        </div>
+            </Row>
+        </Container>
     );
 };
 
