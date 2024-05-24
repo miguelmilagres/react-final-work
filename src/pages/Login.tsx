@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../services/firebaseConfig";
@@ -8,21 +8,23 @@ export default function Login() {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
 
-    const [signInWithEmailAndPassword, user, loading, error] =
-        useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate();
 
     const handleSignIn = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
             await signInWithEmailAndPassword(email, password);
-            if (user) {
-                navigate("/"); // Redirecionar para a página principal
-            }
         } catch (err) {
-            alert("Usuário ou senha inválidos.");
+            console.error("Erro durante o login: ", err);
         }
     };
+
+    useEffect(() => {
+        if (user) {
+            navigate("/");
+        }
+    }, [user, navigate]);
 
     return (
         <div className="auth-container border mt-5">
