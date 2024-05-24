@@ -13,7 +13,7 @@ const LinkButton: React.FC<LinkButtonProps> = ({ url, iconClass, style }) => {
 
   return (
     <button onClick={handleClick} style={{ background: 'none', border: 'none', cursor: 'pointer', ...style }}>
-      <i className={iconClass} style={{ fontSize: 30, color: 'whitesmoke' }}></i>
+      <i className={iconClass} style={{ fontSize: 30, color: '#333' }}></i>
     </button>
   );
 };
