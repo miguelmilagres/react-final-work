@@ -9,7 +9,7 @@ import Cart from "./pages/Cart";
 import About from "./pages/About";
 import MyNavBar from "./components/MyNavBar";
 import Registro from "./pages/Registro";
-import Profile from "./pages/Profile"; // Importar o componente de perfil
+import Profile from "./pages/Profile"; 
 import { AuthProvider } from "./services/AuthContext";
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
                 <Route path="*" element={<PageNotFound />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/registro" element={<Registro />} />
-                <Route path="/profile" element={<Profile />} /> {/* Adicionar a nova rota */}
+                <Route path="/profile" element={<Profile />} /> {}
             </Routes>
         </AuthProvider>
     );
