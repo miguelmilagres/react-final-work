@@ -4,7 +4,7 @@ import { Product } from "../types";
 import { getProductById } from "../services/productServices";
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
 
-import "./css/ProductDetails.css";
+import '../components/css/ProductDetails.css'
 
 const ProductDetails = () => {
     const { idProduct } = useParams();

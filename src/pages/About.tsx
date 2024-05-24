@@ -1,6 +1,6 @@
 import React from 'react';
 import LinkButton from '../components/LinkButton';
-import './About.css'
+import '../components/css/About.css'
 
 const AboutScreen: React.FC = () => {
   return (

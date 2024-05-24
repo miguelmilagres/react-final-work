@@ -1,6 +1,6 @@
 import { Button, Card } from "react-bootstrap";
 import { Product } from "../types";
-import "./css/ProductCard.css";
+import '../components/css/ProductCard.css'
 
 const ProductCard = ({ product }: { product: Product }) => {
     return (
