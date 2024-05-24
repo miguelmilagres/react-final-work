@@ -4,9 +4,14 @@ import Navbar from "react-bootstrap/Navbar";
 import { Image } from "react-bootstrap";
 import { useAuth } from "../services/AuthContext";
 import { LinkContainer } from 'react-router-bootstrap';
+import { auth } from '../services/firebaseConfig';
 
 const MyNavBar = () => {
     const { user, loading } = useAuth();
+
+    const handleLogout = () => {
+        auth.signOut();
+    };
 
     return (
         <Navbar data-bs-theme="light" className="border-bottom px-3 py-3">
@@ -22,11 +27,16 @@ const MyNavBar = () => {
                     {loading ? (
                         <Nav.Link className="px-4 border-start">Carregando...</Nav.Link>
                     ) : user ? (
-                        <LinkContainer to="/profile">
-                            <Nav.Link className="px-4 border-start">
-                                Olá, {user.email}
+                        <>
+                            <LinkContainer to="/profile">
+                                <Nav.Link className="px-4 border-start">
+                                    Olá, {user.email}
+                                </Nav.Link>
+                            </LinkContainer>
+                            <Nav.Link onClick={handleLogout} className="px-4 border-start">
+                                Logout
                             </Nav.Link>
-                        </LinkContainer>
+                        </>
                     ) : (
                         <LinkContainer to="/login">
                             <Nav.Link className="px-4 border-start">

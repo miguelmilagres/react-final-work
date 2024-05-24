@@ -2,17 +2,33 @@ import { useState, useEffect, FormEvent } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../services/firebaseConfig";
+import { useAuth } from "../services/AuthContext";
 import "../components/css/Auth.css";
+
+const AUTO_LOGOUT_TIME = 30 * 60 * 1000; // 30 minutos
 
 export default function Login() {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+    const [errorMessage, setErrorMessage] = useState<string>("");
 
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate();
+    const { user: currentUser } = useAuth();
+
+    useEffect(() => {
+        let timer: NodeJS.Timeout;
+        if (currentUser) {
+            timer = setTimeout(() => {
+                auth.signOut();
+            }, AUTO_LOGOUT_TIME);
+        }
+        return () => clearTimeout(timer);
+    }, [currentUser]);
 
     const handleSignIn = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setErrorMessage("");
         try {
             await signInWithEmailAndPassword(email, password);
         } catch (err) {
@@ -25,6 +41,12 @@ export default function Login() {
             navigate("/");
         }
     }, [user, navigate]);
+
+    useEffect(() => {
+        if (error) {
+            setErrorMessage(error.message);
+        }
+    }, [error]);
 
     return (
         <div className="auth-container border mt-5">
@@ -62,7 +84,7 @@ export default function Login() {
                     />
                 </div>
 
-                {error && <p className="error-message">{error.message}</p>}
+                {errorMessage && <p className="error-message">{errorMessage}</p>}
 
                 <a href="#" className="forgot-password-link">
                     Esqueceu sua senha?
