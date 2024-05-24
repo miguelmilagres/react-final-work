@@ -5,73 +5,80 @@ import { auth } from "../services/firebaseConfig";
 import "../components/css/Auth.css";
 
 export default function Login() {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
 
-  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
-  const navigate = useNavigate();
+    const [signInWithEmailAndPassword, user, loading, error] =
+        useSignInWithEmailAndPassword(auth);
+    const navigate = useNavigate();
 
-  const handleSignIn = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      await signInWithEmailAndPassword(email, password);
-      if (user) {
-        navigate("/"); // Redirecionar para a página principal
-      }
-    } catch (err) {
-      alert("Usuário ou senha inválidos.");
-    }
-  };
+    const handleSignIn = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        try {
+            await signInWithEmailAndPassword(email, password);
+            if (user) {
+                navigate("/"); // Redirecionar para a página principal
+            }
+        } catch (err) {
+            alert("Usuário ou senha inválidos.");
+        }
+    };
 
-  return (
-    <div className="auth-container">
-      <header className="auth-header">
-        <h2>Login</h2>
-        <p>Por favor, digite suas informações de login:</p>
-      </header>
+    return (
+        <div className="auth-container border mt-5">
+            <header className="auth-header">
+                <h2>Login</h2>
+                <p className="mt-2">
+                    Por favor, digite suas informações de login:
+                </p>
+            </header>
 
-      <form onSubmit={handleSignIn} className="auth-form">
-        <div className="input-container">
-          <label htmlFor="email">E-mail</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="seuemail@gmail.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+            <form onSubmit={handleSignIn} className="auth-form">
+                <div className="input-container">
+                    <label htmlFor="email">E-mail</label>
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="seuemail@gmail.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                </div>
+
+                <div className="input-container">
+                    <label htmlFor="password">Senha</label>
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="********"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+
+                {error && <p className="error-message">{error.message}</p>}
+
+                <a href="#" className="forgot-password-link">
+                    Esqueceu sua senha?
+                </a>
+
+                <button type="submit" className="auth-button">
+                    Entrar
+                </button>
+
+                {loading && <p>Carregando...</p>}
+
+                <div className="auth-footer">
+                    <p>Você não tem uma conta?</p>
+                    <Link to="/registro" className="auth-link">
+                        Crie a sua conta aqui
+                    </Link>
+                </div>
+            </form>
         </div>
-
-        <div className="input-container">
-          <label htmlFor="password">Senha</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="********"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-
-        {error && <p className="error-message">{error.message}</p>}
-
-        <a href="#" className="forgot-password-link">Esqueceu sua senha?</a>
-
-        <button type="submit" className="auth-button">
-          Entrar
-        </button>
-
-        {loading && <p>Carregando...</p>}
-
-        <div className="auth-footer">
-          <p>Você não tem uma conta?</p>
-          <Link to="/registro" className="auth-link">Crie a sua conta aqui</Link>
-        </div>
-      </form>
-    </div>
-  );
+    );
 }
