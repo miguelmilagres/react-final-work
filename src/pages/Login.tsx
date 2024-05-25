@@ -2,7 +2,7 @@ import { useState, useEffect, FormEvent } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../services/firebaseConfig";
-import { useAuth } from "../services/AuthContext";
+import { useAuth } from "../contexts/AuthContext";
 import "../components/css/Auth.css";
 
 const AUTO_LOGOUT_TIME = 30 * 60 * 1000; // 30 minutos

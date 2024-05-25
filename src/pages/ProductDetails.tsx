@@ -3,12 +3,15 @@ import { useParams } from "react-router-dom";
 import { Product } from "../types";
 import { getProductById } from "../services/productServices";
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
+import { useCart } from "../contexts/CartContext";
 
 import '../components/css/ProductDetails.css'
+
 
 const ProductDetails = () => {
     const { idProduct } = useParams();
     const [product, setProduct] = useState<Product | null>(null);
+    const { addToCart } = useCart();
 
     useEffect(() => {
         if (idProduct) {
@@ -24,6 +27,16 @@ const ProductDetails = () => {
             fetchProduct();
         }
     }, [idProduct]);
+
+    if (!product) {
+        return <p>Produto não encontrado</p>;
+    }
+
+    const handleAddToCart = () => {
+        if (product) {
+            addToCart({ id: product.id, name: product.name, price: product.price, quantity: 1 });
+        }
+    };
 
     if (!product) {
         return <p>Produto não encontrado</p>;
@@ -56,6 +69,7 @@ const ProductDetails = () => {
                 </Row>
                 <Row>
                     <Button
+                        onClick={handleAddToCart}
                         className="btn-success"
                         style={{
                             width: 200,

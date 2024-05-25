@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Image } from "react-bootstrap";
-import { useAuth } from "../services/AuthContext";
+import { useAuth } from "../contexts/AuthContext";
 import { LinkContainer } from 'react-router-bootstrap';
 import { auth } from '../services/firebaseConfig';
 
