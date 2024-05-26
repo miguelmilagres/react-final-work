@@ -5,7 +5,7 @@ import { getProductById } from "../services/productServices";
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import { useCart } from "../contexts/CartContext";
 
-import '../components/css/ProductDetails.css'
+import '../css/ProductDetails.css'
 
 
 const ProductDetails = () => {
@@ -35,6 +35,7 @@ const ProductDetails = () => {
     const handleAddToCart = () => {
         if (product) {
             addToCart({ id: product.id, name: product.name, price: product.price, quantity: 1 });
+            alert("Produto adicionado ao carrinho!")
         }
     };
 
@@ -48,7 +49,7 @@ const ProductDetails = () => {
                 <Row className="mt-5">
                     <Col className="d-flex flex-column justify-content-center alig">
                         <h2>{product.name}</h2>
-                        <h3>{product.price}</h3>
+                        <h3>R$ {product.price}</h3>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit. Vestibulum sed laoreet enim, sit amet sagittis

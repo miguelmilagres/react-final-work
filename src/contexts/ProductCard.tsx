@@ -1,4 +1,4 @@
-import { useCart } from '../contexts/CartContext';
+import { useCart } from "./CartContext";
 
 const ProductCard = ({ product }: { product: { id: string; name: string; price: number } }) => {
   const { addToCart } = useCart();

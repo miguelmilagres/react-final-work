@@ -1,6 +1,6 @@
 import { useCart } from '../contexts/CartContext';
 import { useState, useEffect } from 'react';
-import '../components/css/Cart.css';
+import '../css/Cart.css';
 
 export const Cart = () => {
   const { cart, removeFromCart, updateQuantity } = useCart();

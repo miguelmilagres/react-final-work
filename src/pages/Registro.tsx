@@ -2,7 +2,7 @@ import { useState, FormEvent } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../services/firebaseConfig";
-import "../components/css/Auth.css";
+import "../css/Login.css";
 
 export default function Registro() {
     const [email, setEmail] = useState<string>("");

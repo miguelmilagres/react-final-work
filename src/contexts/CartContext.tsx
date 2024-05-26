@@ -22,6 +22,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
+
+
+
   const addToCart = (item: CartItem) => {
     setCart((prevCart) => {
       const itemIndex = prevCart.findIndex((i) => i.id === item.id);
@@ -38,6 +41,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
+
+
+
   const removeFromCart = (id: string) => {
     setCart((prevCart) => {
       const newCart = prevCart.filter((item) => item.id !== id);
@@ -45,6 +51,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       return newCart;
     });
   };
+
+
+
 
   const updateQuantity = (id: string, quantity: number) => {
     setCart((prevCart) => {
@@ -56,6 +65,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
+
+
+
   return (
     <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity }}>
       {children}
@@ -66,7 +78,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 export const useCart = () => {
   const context = useContext(CartContext);
   if (context === undefined) {
-    throw new Error('useCart must be used within a CartProvider');
+    throw new Error('useCart deve ser provider');
   }
   return context;
 };

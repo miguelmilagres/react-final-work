@@ -1,6 +1,6 @@
 import React from "react";
 import LinkButton from "../components/LinkButton";
-import "../components/css/About.css";
+import "../css/About.css";
 
 const teamMembers = [
     {
