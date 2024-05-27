@@ -47,12 +47,16 @@ export const Cart = () => {
                                 <input
                                     type="number"
                                     value={item.quantity}
-                                    onChange={(e) =>
-                                        updateQuantity(
-                                            item.id,
-                                            parseInt(e.target.value)
-                                        )
-                                    }
+                                    onChange={(e) => {
+                                        const newValue = parseInt(e.target.value);
+                                       
+                                        if (newValue >= 1) {
+                                            updateQuantity(item.id, newValue);
+                                        } else {
+                                            
+                                            updateQuantity(item.id, 1);
+                                        }
+                                    }}
                                     className="quantity-input"
                                 />
                             </Col>
