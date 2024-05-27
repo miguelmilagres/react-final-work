@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Product } from "../types";
 import { getProductById } from "../services/productServices";
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import { useCart } from "../contexts/CartContext";
 
-import '../css/ProductDetails.css'
-
+import "../css/ProductDetails.css";
 
 const ProductDetails = () => {
     const { idProduct } = useParams();
@@ -34,8 +33,13 @@ const ProductDetails = () => {
 
     const handleAddToCart = () => {
         if (product) {
-            addToCart({ id: product.id, name: product.name, price: product.price, quantity: 1 });
-            alert("Produto adicionado ao carrinho!")
+            addToCart({
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                quantity: 1,
+            });
+            alert("Produto adicionado ao carrinho!");
         }
     };
 
@@ -46,6 +50,21 @@ const ProductDetails = () => {
     return (
         <>
             <Container>
+                <Link to={"/"}>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="32"
+                        height="32"
+                        fill="black"
+                        className="bi bi-arrow-left mt-3"
+                        viewBox="0 0 16 16"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
+                        />
+                    </svg>
+                </Link>
                 <Row className="mt-5">
                     <Col className="d-flex flex-column justify-content-center alig">
                         <h2>{product.name}</h2>

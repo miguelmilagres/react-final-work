@@ -1,6 +1,6 @@
 import { Button, Card } from "react-bootstrap";
 import { Product } from "../types";
-import '../css/ProductCard.css'
+import "../css/ProductCard.css";
 
 const ProductCard = ({ product }: { product: Product }) => {
     return (
@@ -21,9 +21,7 @@ const ProductCard = ({ product }: { product: Product }) => {
                 <Card.Title className="product-price">
                     R$ {product.price}
                 </Card.Title>
-                <Button variant="outline-secondary">
-                    Adicionar ao Carrinho
-                </Button>
+                <Button variant="outline-secondary">Detalhes do Produto</Button>
             </Card.Body>
         </Card>
     );
