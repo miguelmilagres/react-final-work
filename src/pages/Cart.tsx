@@ -9,7 +9,7 @@ export const Cart = () => {
     const navigate = useNavigate();
     const { cart, removeFromCart, updateQuantity } = useCart();
     const [totalPrice, setTotalPrice] = useState(0);
-    const { user, loading } = useAuth();
+    const { user } = useAuth();
 
     // Calcula o preço total do carrinho
     const calculateTotalPrice = () => {

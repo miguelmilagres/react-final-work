@@ -1,5 +1,7 @@
 import { Container, Image } from "react-bootstrap";
 
+import N404 from "../assets/images/404.jpg";
+
 const YourComponent = () => {
     return (
         <Container>
@@ -12,7 +14,7 @@ const YourComponent = () => {
                 }}
             >
                 <Image
-                    src="src/assets/images/404.jpg"
+                    src={N404}
                     style={{ maxWidth: "100%", maxHeight: "100%" }}
                 />
             </div>

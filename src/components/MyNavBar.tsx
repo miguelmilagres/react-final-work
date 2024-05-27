@@ -3,8 +3,9 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Image } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
-import { LinkContainer } from "react-router-bootstrap";
 import { auth } from "../services/firebaseConfig";
+
+import logo from "../assets/images/logo.png";
 
 const MyNavBar = () => {
     const { user, loading } = useAuth();
@@ -17,7 +18,7 @@ const MyNavBar = () => {
         <Navbar data-bs-theme="light" className="border-bottom px-3 py-3">
             <Container fluid>
                 <Navbar.Brand href="/">
-                    <Image src="src/assets/images/logo.png" width={64} />
+                    <Image src={logo} width={64} />
                 </Navbar.Brand>
                 <Nav className="mx-auto fw-bold">
                     <Nav.Link href="/">HOME</Nav.Link>
@@ -30,11 +31,12 @@ const MyNavBar = () => {
                         </Nav.Link>
                     ) : user ? (
                         <>
-                            <LinkContainer to="/profile">
-                                <Nav.Link className="px-4 border-start">
-                                    Olá, {user.email}
-                                </Nav.Link>
-                            </LinkContainer>
+                            <Nav.Link
+                                href="/profile"
+                                className="px-4 border-start"
+                            >
+                                Olá, {user.email}
+                            </Nav.Link>
                             <Nav.Link
                                 onClick={handleLogout}
                                 className="px-4 border-start"
@@ -43,24 +45,22 @@ const MyNavBar = () => {
                             </Nav.Link>
                         </>
                     ) : (
-                        <LinkContainer to="/login">
-                            <Nav.Link className="px-4 border-start">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    fill="currentColor"
-                                    className="bi bi-person-circle"
-                                    viewBox="0 0 16 16"
-                                >
-                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
-                                    />
-                                </svg>
-                            </Nav.Link>
-                        </LinkContainer>
+                        <Nav.Link href="/login" className="px-4 border-start">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                fill="currentColor"
+                                className="bi bi-person-circle"
+                                viewBox="0 0 16 16"
+                            >
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                <path
+                                    fillRule="evenodd"
+                                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+                                />
+                            </svg>
+                        </Nav.Link>
                     )}
                     <Nav.Link href="/cart" className="ps-4 border-start">
                         <svg

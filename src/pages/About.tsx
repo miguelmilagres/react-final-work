@@ -2,17 +2,23 @@ import React from "react";
 import LinkButton from "../components/LinkButton";
 import "../css/About.css";
 
+import zuvanov from "../assets/matheus.jpg";
+import flavio from "../assets/flavio.jpg";
+import mrlate from "../assets/miguel.jpg";
+import pedro from "../assets/pedro.jpg";
+import eu from "../assets/miguelm.jpg";
+
 const teamMembers = [
     {
         name: "Matheus Zuvanov",
-        imgSrc: "src/assets/matheus.jpg",
+        imgSrc: zuvanov,
         description: "Descrição Mateus",
         githubUrl: "https://github.com/",
         linkedinUrl: "https://www.linkedin.com/in/",
     },
     {
         name: "Miguel Araujo",
-        imgSrc: "src/assets/miguel.jpg",
+        imgSrc: mrlate,
         description:
             "Aluno na Faeterj Petrópolis e residente no Serratec/Senac, estagiário na Orange Business Services, tenho 20 anos e busco desenvolver e aprimorar minhas habilidades no âmbito da tecnologia, contribuindo e dando o suporte necessário em quaisquer áreas ou projetos que estiver, além disso um homem muito esbelto.",
         githubUrl: "https://github.com/Mig2445465",
@@ -20,14 +26,14 @@ const teamMembers = [
     },
     {
         name: "Miguel Milagres",
-        imgSrc: "src/assets/miguelm.jpg",
+        imgSrc: eu,
         description: "Descrição Miguel",
         githubUrl: "https://github.com/miguelmilagres",
         linkedinUrl: "https://www.linkedin.com/in/",
     },
     {
         name: "Pedro Henrique",
-        imgSrc: "src/assets/pedro.jpg",
+        imgSrc: pedro,
         description:
             "Aluno de Engenharia de Computação no CEFET Petrópolis e residente no Serratec/Senac. Atualmente procurando desenvolver minhas habilidades em desenvolvimento de softwares.",
         githubUrl: "https://github.com/PedroHenriqueBRibeiro",
@@ -35,7 +41,7 @@ const teamMembers = [
     },
     {
         name: "Flávio Lourenço",
-        imgSrc: "src/assets/flavio.jpg",
+        imgSrc: flavio,
         description:
             "Flávio Lourenço, apaixonado por tecnologia desde a infância, atualmente migrando para uma carreira em desenvolvimento de software Full Stack. No Senac, estou aprimorando minhas habilidades técnicas e comportamentais, construindo seu futuro com determinação e entusiasmo.",
         githubUrl: "https://github.com/LourencoFilho-Dev/",

@@ -1,4 +1,3 @@
-import React from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { auth } from "../services/firebaseConfig";
 import { useNavigate } from "react-router-dom";
@@ -8,11 +7,13 @@ const Profile = () => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        auth.signOut().then(() => {
-            navigate("/login");
-        }).catch((error) => {
-            console.error("Erro ao deslogar:", error);
-        });
+        auth.signOut()
+            .then(() => {
+                navigate("/login");
+            })
+            .catch((error) => {
+                console.error("Erro ao deslogar:", error);
+            });
     };
 
     return (
