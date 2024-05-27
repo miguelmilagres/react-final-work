@@ -6,7 +6,7 @@ const teamMembers = [
     {
         name: "Matheus Zuvanov",
         imgSrc: "src/assets/matheus.jpg",
-        description: "Descrição Mateus",
+        description: "I'm a passionate backend developer with a solid understanding of front-end technologies. My focus is on building robust and scalable server-side applications, but I'm also skilled in integrating these with user-friendly front-end interfaces.",
         githubUrl: "https://github.com/",
         linkedinUrl: "https://www.linkedin.com/in/",
     },
@@ -21,7 +21,7 @@ const teamMembers = [
     {
         name: "Miguel Milagres",
         imgSrc: "src/assets/miguelm.jpg",
-        description: "Descrição Miguel",
+        description: "Mestre em PHP.",
         githubUrl: "https://github.com/miguelmilagres",
         linkedinUrl: "https://www.linkedin.com/in/",
     },
