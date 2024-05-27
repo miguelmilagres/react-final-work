@@ -12,7 +12,8 @@ const teamMembers = [
     {
         name: "Matheus Zuvanov",
         imgSrc: zuvanov,
-        description: "Descrição Mateus",
+        description:
+            "I'm a passionate backend developer with a solid understanding of front-end technologies. My focus is on building robust and scalable server-side applications, but I'm also skilled in integrating these with user-friendly front-end interfaces.",
         githubUrl: "https://github.com/",
         linkedinUrl: "https://www.linkedin.com/in/",
     },
@@ -27,7 +28,8 @@ const teamMembers = [
     {
         name: "Miguel Milagres",
         imgSrc: eu,
-        description: "Descrição Miguel",
+        description:
+            "Aluno na Faeterj Petrópolis e residente no Serratec/Senac, estagiário na Prefeitura Municipal de Petrópolis, tenho 27 anos e busco desenvolver e aprimorar minhas habilidades no âmbito da tecnologia, contribuindo e dando o suporte necessário em quaisquer áreas ou projetos que estiver.",
         githubUrl: "https://github.com/miguelmilagres",
         linkedinUrl: "https://www.linkedin.com/in/",
     },
